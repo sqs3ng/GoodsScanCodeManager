@@ -1,0 +1,29 @@
+{
+	"RootView":{
+		"x":"0",
+		"width":"750",
+		"y":"0",
+		"type":"do_ALayout",
+		"views":[
+			{
+				"width":"750",
+				"id":"do_ImageView_content",
+				"source":"source://image/start.png",
+				"type":"do_ImageView",
+				"height":"1334"
+			},
+			{
+				"x":"237",
+				"width":"305",
+				"y":"988",
+				"fontSize":"40",
+				"id":"do_Label_welcome",
+				"text":"欢迎体验！",
+				"type":"do_Label",
+				"fontStyle":"bold",
+				"fontColor":"8000FFFF"
+			}
+		],
+		"height":"1334"
+	}
+}

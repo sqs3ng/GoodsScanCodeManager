@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<script>
+//系统通知提示音
+function deviceBeep(){
+	var do_Device = sm("do_Device");	
+	do_Device.beep();
+}
+//引发系统震动
+function deviceVibrate(){
+	var do_Device = sm("do_Device");	
+	do_Device.vibrate();
+}
+//打开关闭闪光灯
+var isFlashOpening =false;
+function openCloseFlash(){
+	var do_Device = sm("do_Device");	
+	if (isFlashOpening){
+		isFlashOpening=false;
+		do_Device.flash("off");
+	}
+	else{
+		isFlashOpening=true;
+		do_Device.flash("on");
+	}
+	
+}
+//读取网络页面内容
+function getWebContent(){
+	var do_Notification = sm("do_Notification");	
+	var httpRequest = mm("do_Http");
+	httpRequest.method = "POST";
+	httpRequest.timeout = 5000;
+	httpRequest.contentType = "application/json";// application/x-www-form-urlencoded
+	httpRequest.url = "http://www.163.com";	
+	httpRequest.on("success", function(data) {
+	        do_Notification.alert("POST success:" + data);
+	});
+	httpRequest.on("fail", function(data) {
+	        do_Notification.toast("POST fail:" + data);
+	});
+	httpRequest.request();
+}
+</script>
+<body style="background-color:#99cccc">
+	<center><font style="font-size:18px;color:#993399">本地HTML5网页中调用Deviceone功能</font></center>
+	<table style="width:100%;margin-top:20px;">
+		<tr>
+			<td style="height:30px"><center><button onclick="deviceBeep();" style="width:140px;">系统通知提示音</button></center></td>
+			<td style="height:30px"><center><button onclick="deviceVibrate();" style="width:140px;">引发系统震动</button></center></td>
+		</tr>
+		<tr>
+			<td style="height:30px"><center><button onclick="openCloseFlash();" style="width:140px;">打开关闭闪光灯</button></center></td>
+			<td style="height:30px"><center><button onclick="getWebContent();" style="width:140px;">读网络内容(跨域)</button></center></td>
+		</tr>
+	</table>	
+</body>
+</html>

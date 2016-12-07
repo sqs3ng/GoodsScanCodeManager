@@ -1,0 +1,29 @@
+{
+	"RootView":{
+		"x":"0",
+		"width":"750",
+		"y":"0",
+		"id":"do_ALayout_root",
+		"type":"do_ALayout",
+		"views":[
+			{
+				"x":"0",
+				"width":"750",
+				"y":"0",
+				"id":"do_ALayout_main",
+				"type":"do_ALayout",
+				"views":[
+					{
+						"templates":"source://view/contact/addressCell.ui",
+						"width":"750",
+						"id":"do_IndexListView_contract",
+						"type":"do_IndexListView",
+						"height":"1109"
+					}
+				],
+				"height":"1109"
+			}
+		],
+		"height":"1334"
+	}
+}
